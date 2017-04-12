@@ -1,17 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
 namespace _03.User_Database
 {
-   public class Users
+    public class Users
     {
         private static string dbPath = "users.txt";
         private static Dictionary<string, string> users = new Dictionary<string, string>();
         private static string loggedInUser = null;
-
        public static void Main()
         {
             if (!File.Exists(dbPath))
@@ -26,7 +22,6 @@ namespace _03.User_Database
                 var password = lineParts[1];
                 users[username] = password;
             }
-
             var commands = File.ReadAllLines("input.txt");
             foreach (var command in commands)
             {
@@ -50,7 +45,6 @@ namespace _03.User_Database
                 }
             }
         }
-
         private static void Logout()
         {
             if (loggedInUser == null)
@@ -60,7 +54,6 @@ namespace _03.User_Database
             }
             loggedInUser = null;
         }
-
         private static void Login(string username, string password)
         {
             if (loggedInUser!=null)
@@ -79,7 +72,6 @@ namespace _03.User_Database
             }
             loggedInUser = username;
         }
-
         private static void Register(string username, string password, string confirmPassword)
         {
             if (users.ContainsKey(username))
@@ -94,7 +86,6 @@ namespace _03.User_Database
             }
             users[username] = password;
             File.AppendAllLines(dbPath, new[] { $"{username} {password}"});
-
         }
     }
 }
