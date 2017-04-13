@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace _19.Products
 {
-   public class Product
+   public class ProductFixed
     {
         public string Name { get; set; }
 
